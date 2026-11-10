@@ -24,7 +24,7 @@ The separate SD ZIP is for an already initialized compatible IZ2S native launche
 
 ## What makes IZPSX useful
 
-- **Native emulation, RAM or SD.** The ARM64 core runs on the console. RAM loads the app for the current session; SD keeps it installed with its engine and data. Both use the same game, BIOS, settings and save folders. The PC is needed for initial launcher/FS setup; an initialized SD entry reads game data locally.
+- **Native emulation, RAM or SD.** The ARM64 core runs on the console. RAM loads the app for the current session; SD keeps it installed with its engine and data. Both use the same game, BIOS, settings and save folders.
 
 - **Up to four players.** Each player has a device choice, A/B swap, stick-as-D-pad, deadzone and turbo Cross. Pro controllers, paired Joy-Con, handheld controls and sideways Joy-Con halves are supported. Choose Multitap on Port 1 or 2 for compatible games, then relaunch the game. Pair individual halves with SL/SR in HOME.
 
@@ -40,13 +40,11 @@ The separate SD ZIP is for an already initialized compatible IZ2S native launche
 
 ## Screenshots
 
-The images below are freshly rendered from the **actual 0.5.1 native UI code**, using synthetic controller profiles. They show the interface, not a captured commercial game or proof of physical-console performance. Reproduce them with `python3 tools/screenshots.py`; [provenance](docs/images/provenance.json) records the source hashes.
-
 **Pause menu — continue, settings, restart, choose another game, or return to IZlauncher.**
 
 ![IZPSX native pause menu](docs/images/pause-menu.png)
 
-**Controls — four independent player profiles and individual sideways Joy-Con layouts.**
+**Controls — four independent player profiles.**
 
 ![IZPSX four-player controller settings](docs/images/controller-profiles.png)
 
@@ -89,8 +87,6 @@ Keep each CUE with all of its referenced BIN/IMG tracks and matching names. PBP 
 Missing or empty game files are rejected before core startup. A missing or wrongly sized BIOS displays **BIOS NOT READY**. An unreadable image displays **GAME NOT READY**, releases ordinary file/audio/JIT resources and returns to the library without writing blank cards. Unknown transport outcomes still require a clean game restart as instructed by the panel.
 
 ## Source, compatibility and licensing
-
-Version 0.5.1 consumes the public native SD ABI 5 service environment and tolerates compatible suffix extensions. It checks required services and SDK signatures rather than hardcoding the IZlauncher/IZPSlauncher patch version or reading private launcher-owner layouts. A future incompatible ABI still needs an update; universal future compatibility is not promised.
 
 [src/](src/), [shaders/](shaders/), [server/](server/), the pinned [vendor snapshot](vendor/pcsx_rearmed/) and [ABI profile](abi/sdk-profile.json) accompany the frozen [module](module/). [BUILDING.md](BUILDING.md) describes portable packaging and native rebuilds. Existing SD installations must be updated once for the new public-ABI consumer; games, BIOS and saves remain user data.
 
