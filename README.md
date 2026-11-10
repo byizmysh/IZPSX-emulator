@@ -50,6 +50,8 @@ The separate SD ZIP is for an already initialized compatible IZ2S native launche
 
 ## Controls
 
+In Controls, leave Player 1 → Device on **AUTO** to switch between attached handheld Joy-Con and the first external controller automatically. Attached controls take priority while available, even if a wireless Pro Controller stays connected. Explicit device choices remain fixed.
+
 | Input | Action |
 | --- | --- |
 | A / B / D-pad | Select / back / navigate |

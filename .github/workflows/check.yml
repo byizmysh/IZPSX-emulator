@@ -18,6 +18,11 @@ jobs:
         run: sudo apt-get update && sudo apt-get install -y python3-pil glslang-tools spirv-tools
       - name: Local JS tests
         run: npm test
+      - name: Controller handoff regression
+        run: |
+          mkdir -p build/checks
+          cc -std=c11 -O1 -g -Wall -Wextra -Werror -Wno-misleading-indentation -fsanitize=address,undefined -Isrc -Isrc/sd-runtime tests/controllers-model.c src/sd-runtime/controllers.c -o build/checks/controllers
+          ASAN_OPTIONS=detect_leaks=0 build/checks/controllers
       - name: Checkout compatible platform SDK
         uses: actions/checkout@v4
         with:
