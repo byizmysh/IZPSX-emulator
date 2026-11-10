@@ -12,5 +12,13 @@
     "package": "node tools/package.cjs",
     "build:native": "python3 tools/build-native.py && python3 tools/build-sd.py && python3 tools/build-package.py",
     "release": "python3 tools/release.py"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/byizmysh/IZPSX-emulator.git"
+  },
+  "homepage": "https://github.com/byizmysh/IZPSX-emulator#readme",
+  "bugs": {
+    "url": "https://github.com/byizmysh/IZPSX-emulator/issues"
   }
 }

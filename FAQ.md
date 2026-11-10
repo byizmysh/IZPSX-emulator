@@ -42,4 +42,4 @@ Closing a settings view is not proof of console cleanup. If resources remain unc
 
 ## Has the GitHub project been published?
 
-Not by this preparation. This is a local repository and local set of release assets. A maintainer must choose/create the remote repository and publish after review. No fabricated repository URL is used as a download link.
+Yes. The project is published at [byizmysh/IZPSX-emulator](https://github.com/byizmysh/IZPSX-emulator). Download the module, SD package and corresponding source from [Releases](https://github.com/byizmysh/IZPSX-emulator/releases/latest). IZ2S Platform and confirmed filesystem access are required.

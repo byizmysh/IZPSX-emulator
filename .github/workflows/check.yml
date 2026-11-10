@@ -20,7 +20,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           repository: byizmysh/IZ2S-Platform
-          ref: main
+          ref: b3de207c32375f9b5fd7191e15608f8ea3a6288b
           path: .sdk/IZ2S-Platform
       - name: Package existing native module; do not install or contact a console
         env:
@@ -28,6 +28,6 @@ jobs:
         run: python3 tools/release.py
       - uses: actions/upload-artifact@v4
         with:
-          name: izpsx-emulator-0.5.1-candidate
+          name: izpsx-emulator-0.5.1
           path: dist/*
           if-no-files-found: error

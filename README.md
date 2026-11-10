@@ -10,7 +10,9 @@ The emulation core is [PCSX-ReARMed](https://github.com/notaz/pcsx_rearmed), pin
 
 ## Installation
 
-1. Obtain [IZ2S Platform](https://github.com/byizmysh/IZ2S-Platform) 0.22 with the compatible native launcher ABI. Its [README](https://github.com/byizmysh/IZ2S-Platform#readme) explains the SmileBASIC 4 and Civilization VII connection routes. This release targets Linux x64/ARM64 PC hosts.
+Download the module, SD package or complete corresponding source from [Releases](https://github.com/byizmysh/IZPSX-emulator/releases/latest). Each release includes `SHA256SUMS` for checking downloads.
+
+1. Install [IZ2S Platform](https://github.com/byizmysh/IZ2S-Platform/releases/latest) with the compatible native launcher ABI. Its [README](https://github.com/byizmysh/IZ2S-Platform#readme) explains the SmileBASIC 4 and Civilization VII connection routes. This release targets Linux x64/ARM64 PC hosts.
 2. Enable **Filesystem access** in the panel before launching. Wait until FS access is confirmed; an open browser tab alone does not mean that the console filesystem is available. If acquisition fails, follow the [platform FAQ](https://github.com/byizmysh/IZ2S-Platform/blob/main/FAQ.md) before another attempt.
 3. In **App library**, add `izpsx-emulator-0.5.1.izm`, then choose **Session memory (RAM)** or **SD card**. The bundled platform release already includes IZPSX.
 4. Open **IZPSX emulator → Games and BIOS → Connect SD card** in the panel. Provide your own 512 KiB `scph101.bin` BIOS and supported game dumps; neither is included.
@@ -56,7 +58,7 @@ Settings use their own two-generation journal. Damage to that journal does not f
 
 The panel can upload a complete game folder or selected CUE/BIN/IMG/PBP files, create folders and navigate the library. Before sending, it checks missing CUE tracks, unsafe paths and filename conflicts. It removes PC-specific prefixes from the uploaded CUE copy, keeps the original PC file unchanged, and sends tracks before publishing their CUE. Folder import skips unrelated covers and readme files.
 
-The view shares the platform's [Super File Bros.](https://github.com/byizmysh/super-file-bros) file service. It does not require opening another Super File Bros. window or creating a second FS endpoint. Exit the running native game before file operations. Cancellation and same-file checkpoint continuation use the current platform service; a changed session or unverified write can require restarting the upload. BIOS/game files are never supplied by this project.
+The view shares the platform's [Super File Bros.](https://github.com/byizmysh/IZ2S-Platform/blob/main/tools/fs-rpc-browser/README.md) file service. It does not require opening another Super File Bros. window or creating a second FS endpoint. Exit the running native game before file operations. Cancellation and same-file checkpoint continuation use the current platform service; a changed session or unverified write can require restarting the upload. BIOS/game files are never supplied by this project.
 
 ## Screenshots
 
@@ -114,6 +116,6 @@ Version 0.5.1 consumes the public native SD ABI 5 service environment and tolera
 
 [src/](src/), [shaders/](shaders/), [server/](server/), the pinned [vendor snapshot](vendor/pcsx_rearmed/) and [ABI profile](abi/sdk-profile.json) accompany the frozen [module](module/). [BUILDING.md](BUILDING.md) describes portable packaging and native rebuilds. Existing SD installations must be updated once for the new public-ABI consumer; games, BIOS and saves remain user data.
 
-The repository and its release assets are prepared locally. No remote IZPSX repository, tag or release has been created by this preparation. Packaging and local model checks do not establish new physical-console, audio, long-session or every-game qualification. See [Compatibility](COMPATIBILITY.md), [FAQ](FAQ.md) and [Changes](CHANGELOG.md).
+The [repository](https://github.com/byizmysh/IZPSX-emulator) and [release downloads](https://github.com/byizmysh/IZPSX-emulator/releases) include the matching native module and corresponding source. Packaging and local model checks do not establish new physical-console, audio, long-session or every-game qualification. See [Compatibility](COMPATIBILITY.md), [FAQ](FAQ.md) and [Changes](CHANGELOG.md).
 
 PCSX-ReARMed and this derivative module are conveyed under GPL-2.0. Upstream notices remain intact. See [LICENSE](LICENSE), [THIRD_PARTY.md](THIRD_PARTY.md), [font license](FONT-LICENSE.txt) and the [upstream project](https://github.com/notaz/pcsx_rearmed). Games, BIOS, keys and personal saves are excluded.

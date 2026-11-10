@@ -1,6 +1,6 @@
 # IZPSX emulator 0.5.1
 
-Locally prepared for its first standalone GitHub publication; no remote project/tag/release has been created.
+First standalone GitHub release: module, SD installation package and complete corresponding source. Requires [IZ2S Platform](https://github.com/byizmysh/IZ2S-Platform) and confirmed FS access.
 
 - Updated to the checked 0.5.1 native SD consumer using public ABI services and compatible suffix extensions, without private launcher-owner layouts.
 - Documented the mandatory IZ2S Panel and FS session requirements, detailed app features and reproducible native UI screenshots.
