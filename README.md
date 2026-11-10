@@ -4,9 +4,7 @@
 
 PlayStation emulation on **Switch 2**, with local ARM64 execution, an SD game library, persistent memory cards and controls for up to four players.
 
-**IZPSX works only through [IZ2S Panel / IZ2S Platform](https://github.com/byizmysh/IZ2S-Platform). It is not a standalone Switch application or a desktop emulator. A working console connection with Filesystem access (FS) enabled and successfully acquired is required to install and use its games, BIOS, settings and saves.** Enable FS before starting the launcher and wait for the panel to confirm access. See the platform's [installation and launch guide](https://github.com/byizmysh/IZ2S-Platform#readme) and [FS troubleshooting FAQ](https://github.com/byizmysh/IZ2S-Platform/blob/main/FAQ.md).
-
-The emulation core is [PCSX-ReARMed](https://github.com/notaz/pcsx_rearmed), pinned in [vendor/provenance.json](vendor/provenance.json), with an Ari64 ARM64 dynarec and NEON GPU. The PC panel prepares the session, installs apps and manages files; the console runs the game.
+**IZPSX works only through [IZ2S Panel / IZ2S Platform](https://github.com/byizmysh/IZ2S-Platform). A working console connection with Filesystem access (FS) enabled and successfully acquired is required to install and use its games, BIOS, settings and saves.** Enable FS before starting the launcher and wait for the panel to confirm access. See the platform's [installation and launch guide](https://github.com/byizmysh/IZ2S-Platform#readme) and [FS troubleshooting FAQ](https://github.com/byizmysh/IZ2S-Platform/blob/main/FAQ.md).
 
 [Install](#installation) · [Features](#what-makes-izpsx-useful) · [Screenshots](#screenshots) · [Controls](#controls) · [Files and saves](#storage-and-files) · [Build](BUILDING.md) · [FAQ](FAQ.md) · [Compatibility](COMPATIBILITY.md) · [License](LICENSE)
 
