@@ -10,6 +10,8 @@ PlayStation emulation on **Switch 2**, with local ARM64 execution, an SD game li
 
 ## Installation
 
+**IZPSX emulator is already included in the latest [IZ2S Platform](https://github.com/byizmysh/IZ2S-Platform/releases/latest); no separate installation is needed.**
+
 Download the module, SD package or complete corresponding source from [Releases](https://github.com/byizmysh/IZPSX-emulator/releases/latest). Each release includes `SHA256SUMS` for checking downloads.
 
 1. Install [IZ2S Platform](https://github.com/byizmysh/IZ2S-Platform/releases/latest) with the compatible native launcher ABI. Its [README](https://github.com/byizmysh/IZ2S-Platform#readme) explains the SmileBASIC 4 and Civilization VII connection routes. This release targets Linux x64/ARM64 PC hosts.
