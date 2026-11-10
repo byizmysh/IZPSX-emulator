@@ -2,7 +2,7 @@
 
 ## Repackage the frozen module
 
-Use Node.js 20.20 or newer and a compatible IZ2S Platform source checkout. The default sibling folder is `../IZ2S-Platform`; otherwise set `IZPSX_PANEL` (or `IZ2S_ROOT`) to the platform root.
+Use Node.js 20.20 or newer, Python 3 with Pillow, spirv-val (SPIRV-Tools) and a compatible IZ2S Platform source checkout. The default sibling folder is `../IZ2S-Platform`; otherwise set `IZPSX_PANEL` (or `IZ2S_ROOT`) to the platform root. On Debian/Ubuntu, install the packaging tools with `sudo apt-get install python3-pil spirv-tools`; native shader rebuilding also uses `glslang-tools`.
 
 ```sh
 export IZPSX_PANEL=/path/to/IZ2S-Platform

@@ -14,6 +14,8 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 24
+      - name: Package validation tools
+        run: sudo apt-get update && sudo apt-get install -y python3-pil glslang-tools spirv-tools
       - name: Local JS tests
         run: npm test
       - name: Checkout compatible platform SDK
