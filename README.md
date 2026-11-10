@@ -1,4 +1,6 @@
-# IZPSX emulator 0.5.1
+# IZPSX emulator
+
+<p align="center"><img src="assets/brand/izpsx-icon-v1.png" width="120" alt="IZPSX emulator icon"></p>
 
 PlayStation emulation on **Switch 2**, with local ARM64 execution, an SD game library, persistent memory cards and controls for up to four players.
 
@@ -22,43 +24,19 @@ The separate SD ZIP is for an already initialized compatible IZ2S native launche
 
 ## What makes IZPSX useful
 
-### Native emulation, with two launch modes
+- **Native emulation, RAM or SD.** The ARM64 core runs on the console. RAM loads the app for the current session; SD keeps it installed with its engine and data. Both use the same game, BIOS, settings and save folders. The PC is needed for initial launcher/FS setup; an initialized SD entry reads game data locally.
 
-The ARM64 dynarec, interpreter, GPU and SPU execute on the console. Games are read from SD instead of being streamed as video from the PC. **RAM** is convenient for trying an app: the panel sends its executable and matching engine for the current session. **SD** keeps the installed app, engine and data on the card. Source detection is automatic, and a RAM launch does not fall back silently to a different installed SD version.
+- **Up to four players.** Each player has a device choice, A/B swap, stick-as-D-pad, deadzone and turbo Cross. Pro controllers, paired Joy-Con, handheld controls and sideways Joy-Con halves are supported. Choose Multitap on Port 1 or 2 for compatible games, then relaunch the game. Pair individual halves with SL/SR in HOME.
 
-An initialized SD entry reads its executable, games, BIOS and user state locally without a PC data service. **This still requires IZ2S Panel to establish the initial launcher/FS session. It does not provide a complete power-on boot with the PC absent.** RAM and SD use the same game, BIOS, settings and memory-card folders.
+- **Picture and performance.** Display limits: Native, 20, 25, 30, 40, 50 or 60 FPS, with native emulation/audio timing preserved and separate EMU/VIDEO counters. Adjust aspect ratio, integer scaling, filtering, brightness, scanlines and overscan. A display cap does not fix slow emulation.
 
-### Four player profiles and sideways Joy-Con
+- **Audio and core settings.** Volume, mute, mono, buffering, SPU reverb/interpolation and CD music; dynarec/interpreter, PS1 CPU clock and Auto/NTSC/PAL timing. Options marked **next game launch** apply after selecting the game again.
 
-Each of Players 1–4 has its own input-device selection, A/B swap, stick-as-D-pad setting, deadzone and turbo Cross setting. Pro controllers, paired Joy-Con, handheld input and individual sideways Joy-Con halves are supported. Half-controller face buttons and stick axes rotate with their orientation, so menus use consistent visual button positions.
+- **Pause and return.** **Minus** opens Continue, Settings, Restart game, Choose game and Exit. **Plus = PS1 Start**; R3 has no exit shortcut. Video, audio and control changes apply on return to play. Pause and normal exit stop queued audio.
 
-For compatible games, choose **Multitap on Port 1 or Port 2**, then select the game again. Port 1 places Players 1–4 on its four sockets. Port 2 keeps Player 1 on the first normal port and assigns Players 2–4 to the second port's Multitap. The required port and player support depend on the game: connecting four controllers does not turn a two-player title into a four-player game.
+- **Persistent memory cards.** Two shared 128 KiB cards save to alternating verified generations, with flushing on pause/exit and recovery from a damaged latest copy. Settings use a separate journal. Keep backups; **save states are not implemented**.
 
-Pair individual halves with SL/SR in HOME before entering SmileBASIC. Player 1 controls emulator menus; if that player is disconnected or disabled, an available controller can restore settings.
-
-### Display pacing that keeps the game's speed
-
-The **Display FPS limit** offers Native, 20, 25, 30, 40, 50 and 60. It limits picture updates while emulation and sound retain the game's native timing. A 30 FPS display cap does not deliberately run a 60 Hz game at half speed; a PAL game keeps its native 50 Hz when a higher cap is selected. The performance display separates **EMU** from **VIDEO** to make this distinction visible. A cap does not fix slow emulation or guarantee a performance target.
-
-Choose 4:3, 16:9, square pixels or integer scale; nearest or linear filtering; brightness, scanlines and overscan crop. Audio controls include volume, mute, mono, startup buffering, SPU reverb, interpolation and CD music. Emulation settings expose dynarec/interpreter selection, PS1 CPU clock, Auto/NTSC/PAL timing, BIOS logo, dithering and interlaced video. Options marked **next game launch** take effect after choosing the game again.
-
-### Pause, change settings, or return to the launcher
-
-**Minus** opens a native pause menu with **Continue**, **Settings**, **Restart game**, **Choose game** and **Exit IZPSX emulator**. Restart asks for confirmation. **Plus remains PS1 Start**, and R3 has no emulator exit shortcut. Pause and normal exit stop the output-audio queue so sound from the old picture is not carried into a resumed frame.
-
-Settings are grouped into Video, Audio, Emulation, Controls, System and About tabs. Image, output-audio and control changes apply on return to play; core options for the next launch do not silently change a running game. This is an in-app pause menu, not simultaneous suspension of multiple launcher apps.
-
-### Memory cards with recovery generations
-
-Two shared 128 KiB PS1 memory cards are saved as alternating verified generations. Dirty cards save after the configured delay and are flushed on pause and normal exit. Writes are flushed, read back and verified before publication. If the latest generation is torn, the previous valid copy can recover it. If both copies are damaged, the emulator reports an error rather than silently formatting your progress.
-
-Settings use their own two-generation journal. Damage to that journal does not format the memory cards. Backups are still useful: these checks do not provide an undo for deletion or protect against every SD failure. **Save states are not implemented.**
-
-### A file manager that understands game folders
-
-The panel can upload a complete game folder or selected CUE/BIN/IMG/PBP files, create folders and navigate the library. Before sending, it checks missing CUE tracks, unsafe paths and filename conflicts. It removes PC-specific prefixes from the uploaded CUE copy, keeps the original PC file unchanged, and sends tracks before publishing their CUE. Folder import skips unrelated covers and readme files.
-
-The view shares the platform's [Super File Bros.](https://github.com/byizmysh/IZ2S-Platform/blob/main/tools/fs-rpc-browser/README.md) file service. It does not require opening another Super File Bros. window or creating a second FS endpoint. Exit the running native game before file operations. Cancellation and same-file checkpoint continuation use the current platform service; a changed session or unverified write can require restarting the upload. BIOS/game files are never supplied by this project.
+- **Game-folder management.** Upload folders or CUE/BIN/IMG/PBP files, create directories and browse the library. The panel checks CUE tracks, paths and filename conflicts, adjusts the uploaded CUE copy and sends tracks first. It shares the platform's [Super File Bros. service](https://github.com/byizmysh/IZ2S-Platform/blob/main/tools/fs-rpc-browser/README.md). Transfers support cancellation and verified-checkpoint continuation where the session permits. Exit the running game before file operations.
 
 ## Screenshots
 
