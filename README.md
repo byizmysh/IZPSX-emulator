@@ -10,13 +10,15 @@ PlayStation emulation on **Switch 2**, with local ARM64 execution, an SD game li
 
 ## Installation
 
-**IZPSX emulator is already included in the latest [IZ2S Platform](https://github.com/byizmysh/IZ2S-Platform/releases/latest); no separate installation is needed.**
+Install IZPSX separately if it is absent from your IZ2S Platform edition. This release provides **IZPSX 0.5.2** in the `.iza` format for the current IZ2S menu. Native code was rebuilt locally and matched the selected 0.5.2 module byte for byte. No new hardware test or performance gain is claimed.
+
+Install `izpsx-emulator-0.5.2.iza` through the platform App library. For a mounted SD card, extract the complete `iz2s/` directory from `izpsx-emulator-0.5.2-sd.zip` to the card root. The entry must be `SD:/iz2s/modules/izpsx/launcher.iza`; keep its `sd-bundle.json` and every `asset-*.izdata` file beside it. Preserve `games/`, `bios/` and `saves/` when updating.
 
 Download the module, SD package or complete corresponding source from [Releases](https://github.com/byizmysh/IZPSX-emulator/releases/latest). Each release includes `SHA256SUMS` for checking downloads.
 
-1. Install [IZ2S Platform](https://github.com/byizmysh/IZ2S-Platform/releases/latest) with the compatible native launcher ABI. Its [README](https://github.com/byizmysh/IZ2S-Platform#readme) explains the SmileBASIC 4 and Civilization VII connection routes. This release targets Linux x64/ARM64 PC hosts.
+1. Install [IZ2S Platform](https://github.com/byizmysh/IZ2S-Platform/releases/latest) with the current compatible IZ2S menu. Its [README](https://github.com/byizmysh/IZ2S-Platform#readme) explains the SmileBASIC 4 and Civilization VII connection routes. This release targets Linux x64/ARM64 PC hosts.
 2. Enable **Filesystem access** in the panel before launching. Wait until FS access is confirmed; an open browser tab alone does not mean that the console filesystem is available. If acquisition fails, follow the [platform FAQ](https://github.com/byizmysh/IZ2S-Platform/blob/main/FAQ.md) before another attempt.
-3. In **App library**, add `izpsx-emulator-0.5.1.izm`, then choose **Session memory (RAM)** or **SD card**. The bundled platform release already includes IZPSX.
+3. In **App library**, add `izpsx-emulator-0.5.2.iza`, then choose **Session memory (RAM)** or **SD card**. A second installation is unnecessary if the same content is already present.
 4. Open **IZPSX emulator → Games and BIOS → Connect SD card** in the panel. Provide your own 512 KiB `scph101.bin` BIOS and supported game dumps; neither is included.
 5. Disconnect the file view when finished and open the IZPSX emulator tile on the console. **About** identifies whether the app was loaded from RAM or SD.
 
@@ -30,7 +32,7 @@ The separate SD ZIP is for an already initialized compatible IZ2S native launche
 
 - **Picture and performance.** Display limits: Native, 20, 25, 30, 40, 50 or 60 FPS, with native emulation/audio timing preserved and separate EMU/VIDEO counters. Adjust aspect ratio, integer scaling, filtering, brightness, scanlines and overscan. A display cap does not fix slow emulation.
 
-- **Audio and core settings.** Volume, mute, mono, buffering, SPU reverb/interpolation and CD music; dynarec/interpreter, PS1 CPU clock and Auto/NTSC/PAL timing. Options marked **next game launch** apply after selecting the game again.
+- **Audio and core settings.** Volume, mute, mono, buffering, SPU reverb/interpolation and CD music; interpreter, PS1 CPU clock and Auto/NTSC/PAL timing. Options marked **next game launch** apply after selecting the game again.
 
 - **Pause and return.** **Minus** opens Continue, Settings, Restart game, Choose game and Exit. **Plus = PS1 Start**; R3 has no exit shortcut. Video, audio and control changes apply on return to play. Pause and normal exit stop queued audio.
 
@@ -40,7 +42,7 @@ The separate SD ZIP is for an already initialized compatible IZ2S native launche
 
 ## Screenshots
 
-**Pause menu — continue, settings, restart, choose another game, or return to IZlauncher.**
+**Pause menu — continue, settings, restart, choose another game, or return to IZ2S.**
 
 ![IZPSX native pause menu](docs/images/pause-menu.png)
 
@@ -70,8 +72,8 @@ For an individual sideways Joy-Con, +/- is Start and stick click is Select. SL/S
 ## Storage and files
 
 ```text
-SD:/IZ2S/Homebrew/Modules/izpsx/
-  launcher.izapp
+SD:/iz2s/modules/izpsx/
+  launcher.iza
   asset-<sha256>.izdata
   bios/scph101.bin
   games/<game folder>/<disc>.cue

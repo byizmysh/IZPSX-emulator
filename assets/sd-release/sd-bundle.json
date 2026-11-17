@@ -1,0 +1,17 @@
+{
+  "format": "iz2s.sd-bundle",
+  "version": 1,
+  "id": "izpsx",
+  "launcher": {
+    "bytes": 160696,
+    "sha256": "bc3054dc595fa9d99eba9badd2304f8a1536636b42acd7b70b428fdc97b3f0d0"
+  },
+  "assets": [
+    {
+      "file": "asset-b87343c59604a1ffc497ec852e7fc80beb65cf92b6e208124528a4a39b6fb8db.izdata",
+      "path": "asset-b87343c59604a1ffc497ec852e7fc80beb65cf92b6e208124528a4a39b6fb8db.izdata",
+      "bytes": 1746048,
+      "sha256": "b87343c59604a1ffc497ec852e7fc80beb65cf92b6e208124528a4a39b6fb8db"
+    }
+  ]
+}

@@ -1,7 +1,7 @@
-IZPSX emulator 0.5.1 — @byizmysh
+IZPSX emulator 0.5.2 — @byizmysh
 
-SD:/IZ2S/Homebrew/Modules/izpsx/
-  launcher.izapp + declared asset-*.izdata
+SD:/iz2s/modules/izpsx/
+  launcher.iza + declared asset-*.izdata
   games/ — BIN/CUE or PBP, each game in its own directory
   bios/scph101.bin — your own 512 KiB BIOS
   saves/ — two shared memory cards, two verified generations each

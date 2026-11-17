@@ -5,7 +5,7 @@ import hashlib,json,os,subprocess,zipfile,tarfile,gzip,io
 ROOT=Path(__file__).resolve().parents[1]
 VERSION=json.loads((ROOT/'package.json').read_text())['version']
 OUT=ROOT/'dist';EPOCH=1794268800
-TOP={'src','shaders','server','tests','assets','vendor','abi','module','tools','.github','docs'}
+TOP={'src','shaders','server','tests','assets','vendor','abi','module','tools','.github','docs','sdk'}
 FILES={'README.md','BUILDING.md','FAQ.md','COMPATIBILITY.md','CHANGELOG.md','THIRD_PARTY.md','CONTRIBUTING.md','LICENSE','FONT-LICENSE.txt','package.json','requirements-build.txt','.gitignore','launch-options.cjs'}
 def sha(data):return hashlib.sha256(data).hexdigest()
 def files():
@@ -39,10 +39,10 @@ def main():
             info=tarfile.TarInfo('izpsx-emulator/'+name);info.size=len(data);info.mode=0o755 if executable else 0o644;info.mtime=EPOCH;tar.addfile(info,io.BytesIO(data))
     sd=[]
     for p in sorted((OUT/'sd').iterdir()):
-        if p.is_file() and (p.name=='launcher.izapp' or p.suffix=='.izdata'):sd.append(('IZ2S/Homebrew/Modules/izpsx/'+p.name,p.read_bytes(),False))
-    if not any(n.endswith('launcher.izapp') for n,_,_ in sd):raise RuntimeError('Native SD entry missing')
+        if p.is_file() and (p.name=='launcher.iza' or p.suffix in {'.izdata','.sig'} or p.name.startswith('sd-bundle')):sd.append(('iz2s/modules/izpsx/'+p.name,p.read_bytes(),False))
+    if not any(n.endswith('launcher.iza') for n,_,_ in sd):raise RuntimeError('Native SD entry missing')
     zipped(OUT/(stem+'-sd.zip'),sd)
-    products=[OUT/(stem+s) for s in ['.izm','-sd.zip','-source.zip','-source.tar.gz']]
+    products=[OUT/(stem+s) for s in ['.iza','-sd.zip','-source.zip','-source.tar.gz']]
     hashes=[{'file':p.name,'bytes':p.stat().st_size,'sha256':sha(p.read_bytes())} for p in products]
     (OUT/'SHA256SUMS').write_text(''.join(p['sha256']+'  '+p['file']+'\n' for p in hashes))
     report={'version':VERSION,'published':False,'consoleExecuted':False,'nativeRebuilt':False,'correspondingSourceIncluded':True,'sourceFiles':len(source),'products':hashes}

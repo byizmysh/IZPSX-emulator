@@ -3,10 +3,9 @@
   "abi": 1,
   "id": "izpsx",
   "name": "IZPSX emulator",
-  "version": "0.5.1",
+  "version": "0.5.2",
   "description": "IZPSX emulator. Up to four players with Multitap and sideways Joy-Con controls, local SD games and persistent memory cards. @byizmysh",
   "transition": "none",
-  "hostRuntime": "module:izpsx/launch",
   "category": "game",
   "shaders": {
     "vertex": "app.vert.spv",
@@ -22,18 +21,19 @@
   },
   "native": {
     "format": "iz2s.native-app",
-    "abi": 5,
+    "abi": 7,
     "code": "native/shim.bin",
     "dataBytes": 262144,
     "capabilities": [
-      "audio-out"
+      "audio-out",
+      "cooperative-image"
     ],
     "assets": [
       {
-        "file": "native/asset-d6180a3af01f5767e5c07623cfebb7a65daf85df132450cd9344df960fa7bafc.izdata",
-        "path": "asset-d6180a3af01f5767e5c07623cfebb7a65daf85df132450cd9344df960fa7bafc.izdata",
-        "bytes": 1748288,
-        "sha256": "d6180a3af01f5767e5c07623cfebb7a65daf85df132450cd9344df960fa7bafc"
+        "file": "native/asset-b87343c59604a1ffc497ec852e7fc80beb65cf92b6e208124528a4a39b6fb8db.izdata",
+        "path": "asset-b87343c59604a1ffc497ec852e7fc80beb65cf92b6e208124528a4a39b6fb8db.izdata",
+        "bytes": 1746048,
+        "sha256": "b87343c59604a1ffc497ec852e7fc80beb65cf92b6e208124528a4a39b6fb8db"
       }
     ]
   }

@@ -1,3 +1,11 @@
+# IZPSX emulator 0.5.2 — current IZ2S / IZA distribution
+
+- Include the current native 0.5.2 module, verified by a byte-identical local rebuild of its engine and shim.
+- Use `.iza` for platform installation and `launcher.iza` in the complete SD bundle.
+- Canonical SD installation directory: `/iz2s/modules/izpsx/`.
+- Include SDK headers and build sources with their licenses.
+- This variant uses the interpreter. No dynarec performance or new hardware qualification is claimed.
+
 # IZPSX emulator 0.5.1 — controller handoff update
 
 - AUTO Player 1 prefers attached handheld Joy-Con even while a wireless Pro Controller remains connected, and returns to the first external controller when handheld input disconnects.
