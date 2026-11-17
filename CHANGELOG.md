@@ -1,3 +1,9 @@
+# 0.5.2 distribution clarification
+
+- Explicit BIOS and game destinations on SD; no BIOS or game images are bundled.
+- Reject BIOS/game files during module and source-release packaging.
+- Align the PC Games and BIOS interface with `/iz2s/modules/izpsx/`.
+
 # IZPSX emulator 0.5.2 — current IZ2S / IZA distribution
 
 - Include the current native 0.5.2 module, verified by a byte-identical local rebuild of its engine and shim.

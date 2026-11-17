@@ -11,7 +11,11 @@ async function build({fromBuild=false}={}){
  const home=path.join(ROOT,'module'),pkg=JSON.parse(await fs.readFile(path.join(home,'module.json'))),meta=require('../package.json');
  assert.equal(pkg.id,'izpsx');assert.equal(pkg.version,meta.version);
  const archive=require(path.join(platform,'core/archive.cjs'));
- const bytes=await archive.pack(home);assert.equal(archive.inspect(bytes).descriptor.version,meta.version);
+ const bytes=await archive.pack(home),checked=archive.inspect(bytes);assert.equal(checked.descriptor.version,meta.version);
+ for(const {name} of checked.files){
+  const parts=name.toLowerCase().split('/'),base=parts.at(-1);
+  assert(!parts.some(p=>['bios','games','user-bios','user-games'].includes(p))&&!/^(?:scph.*\.bin|bios\.bin|ps[1x]_rom\.bin)$/.test(base)&&! /\.(?:iso|cue|chd|pbp|ccd|sbi|sub)$/.test(base),'BIOS/game data must not be distributed: '+name);
+ }
  const moduleFile=path.join(output,'izpsx-emulator-'+meta.version+'.iza');await fs.writeFile(moduleFile,bytes);
  const frozen=path.join(ROOT,'assets/sd-release'),receipt=JSON.parse(await fs.readFile(path.join(frozen,'release.json')));
  assert.equal(receipt.version,meta.version);

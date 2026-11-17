@@ -22,14 +22,22 @@ def files():
         if rel.suffix in {'.core','.log','.pyc','.key','.pem'}:raise RuntimeError('Private output in source: '+str(rel))
         result.append((rel.as_posix(),data,bool(p.stat().st_mode&0o111)))
     return result
+def reject_user_content(name):
+    parts=Path(name.lower()).parts
+    base=parts[-1]
+    if any(x in {'bios','games','user-bios','user-games'} for x in parts) or (base.startswith('scph') and base.endswith('.bin')) or base in {'bios.bin','ps1_rom.bin','psx_rom.bin'} or Path(base).suffix in {'.iso','.cue','.chd','.pbp','.ccd','.sbi','.sub'}:
+        raise RuntimeError('BIOS/game data must not be distributed: '+name)
 def zipped(path,entries,prefix=''):
     with zipfile.ZipFile(path,'w',zipfile.ZIP_DEFLATED,compresslevel=9) as z:
         for name,data,executable in entries:
+            reject_user_content(name)
             entry=zipfile.ZipInfo(prefix+name,(2026,11,10,0,0,0));entry.external_attr=(0o100755 if executable else 0o100644)<<16;entry.compress_type=zipfile.ZIP_DEFLATED;z.writestr(entry,data)
 def main():
     OUT.mkdir(exist_ok=True)
     subprocess.run([os.environ.get('NODE','node'),'tools/package.cjs'],cwd=ROOT,check=True)
-    source=files();manifest={'version':VERSION,'files':{name:{'sha256':sha(data),'bytes':len(data),'executable':executable} for name,data,executable in source}}
+    source=files()
+    for name,_,_ in source:reject_user_content(name)
+    manifest={'version':VERSION,'files':{name:{'sha256':sha(data),'bytes':len(data),'executable':executable} for name,data,executable in source}}
     manifest_bytes=(json.dumps(manifest,indent=2)+'\n').encode();(OUT/'SOURCE-MANIFEST.json').write_bytes(manifest_bytes)
     source.append(('SOURCE-MANIFEST.json',manifest_bytes,False))
     stem='izpsx-emulator-'+VERSION

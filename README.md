@@ -71,6 +71,19 @@ For an individual sideways Joy-Con, +/- is Start and stick click is Select. SL/S
 
 ## Storage and files
 
+## Add your BIOS and games
+
+BIOS and game images are **not included**. Add your own files after installing the emulator. These are paths on the Switch SD card:
+
+| File | Exact destination |
+| --- | --- |
+| PlayStation BIOS, exactly **512 KiB (524,288 bytes)** | `SD:/iz2s/modules/izpsx/bios/scph101.bin` |
+| CUE/BIN game | `SD:/iz2s/modules/izpsx/games/<game name>/disc.cue` and its referenced BIN tracks in the same folder |
+| PBP game | `SD:/iz2s/modules/izpsx/games/<game name>/game.pbp` |
+
+Create `bios/` and `games/` if they do not exist. The BIOS filename must be `scph101.bin`; keep game filenames and CUE track references consistent. Extract compressed game downloads before copying them. Do not put BIOS or games beside `launcher.iza`. Add them through **Games and BIOS** in the PC panel, FTP, or a mounted SD card. Preserve `bios/`, `games/`, `saves/` and settings when updating the application.
+
+
 ```text
 SD:/iz2s/modules/izpsx/
   launcher.iza

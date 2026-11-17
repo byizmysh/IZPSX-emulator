@@ -3,7 +3,7 @@
 const fs=require('node:fs/promises'),path=require('node:path'),http=require('node:http');
 const crypto=require('node:crypto'),assert=require('node:assert/strict');
 const MAX_CHUNK_BYTES=0x70000,LEGACY_CHUNK_BYTES=32768,REQUEST_BYTES=0xa0000;
-const ROOT_SD='/sd/IZ2S/Homebrew/Modules/izpsx';
+const ROOT_SD='/sd/iz2s/modules/izpsx';
 const AREAS=Object.freeze({games:ROOT_SD+'/games',bios:ROOT_SD+'/bios',saves:ROOT_SD+'/saves'});
 const read=async p=>JSON.parse(await fs.readFile(p));
 const pause=ms=>new Promise(r=>setTimeout(r,ms));
