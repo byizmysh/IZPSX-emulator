@@ -28,7 +28,7 @@ static uint32_t list(IzNativeApp *app,const char *name,Sb4StorageEntry *entries,
 static uint32_t size(IzNativeApp *app,const char *name,uint64_t *out) {
     assert(app==&owner.base.base.base.base.base.base.base);
     ++host_calls;
-    if(strcmp(name,"bios/scph101.bin"))return 0x202;
+    if(strcmp(name,"bios/bios.bin"))return 0x202;
     *out=524288;
     return 0;
 }
@@ -83,7 +83,7 @@ int main(void) {
     assert(ps1_sd_filter_images(rows,count)==3);
     assert(!strcmp(rows[0].name,"Bios")&&!strcmp(rows[1].name,"Game.cue")&&!strcmp(rows[2].name,"Other.pbp"));
     uint64_t length=0;
-    assert(!ps1_sd_statfile(&sd,IZPSX_SD_ROOT,IZPSX_SD_ROOT "/bios/scph101.bin",&length)&&length==524288);
+    assert(!ps1_sd_statfile(&sd,IZPSX_SD_ROOT,IZPSX_SD_ROOT "/bios/bios.bin",&length)&&length==524288);
     assert(ps1_sd_statfile(&sd,IZPSX_SD_ROOT,IZPSX_SD_ROOT "/bios/missing.bin",&length)==0x202&&!length);
     assert(ps1_sd_statfile(&sd,"/","/private/other.bin",&length)==PS1_SD_INVALID&&!length);
     assert(host_calls==3);

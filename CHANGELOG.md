@@ -1,3 +1,9 @@
+# 0.5.2 BIOS filename update
+
+- Use only `bios/bios.bin` as the external BIOS file, exactly 512 KiB.
+- Rebuild the native executable/engine and update the complete SD bundle.
+- Enforce the new filename in the PC uploader and document it throughout installation instructions.
+
 # 0.5.2 distribution clarification
 
 - Explicit BIOS and game destinations on SD; no BIOS or game images are bundled.

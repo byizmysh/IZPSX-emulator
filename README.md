@@ -19,7 +19,7 @@ Download the module, SD package or complete corresponding source from [Releases]
 1. Install [IZ2S Platform](https://github.com/byizmysh/IZ2S-Platform/releases/latest) with the current compatible IZ2S menu. Its [README](https://github.com/byizmysh/IZ2S-Platform#readme) explains the SmileBASIC 4 and Civilization VII connection routes. This release targets Linux x64/ARM64 PC hosts.
 2. Enable **Filesystem access** in the panel before launching. Wait until FS access is confirmed; an open browser tab alone does not mean that the console filesystem is available. If acquisition fails, follow the [platform FAQ](https://github.com/byizmysh/IZ2S-Platform/blob/main/FAQ.md) before another attempt.
 3. In **App library**, add `izpsx-emulator-0.5.2.iza`, then choose **Session memory (RAM)** or **SD card**. A second installation is unnecessary if the same content is already present.
-4. Open **IZPSX emulator → Games and BIOS → Connect SD card** in the panel. Provide your own 512 KiB `scph101.bin` BIOS and supported game dumps; neither is included.
+4. Open **IZPSX emulator → Games and BIOS → Connect SD card** in the panel. Provide your own 512 KiB `bios.bin` BIOS and supported game dumps; neither is included.
 5. Disconnect the file view when finished and open the IZPSX emulator tile on the console. **About** identifies whether the app was loaded from RAM or SD.
 
 The separate SD ZIP is for an already initialized compatible IZ2S native launcher. Prefer the panel's App library so matching executable/assets, ownership and installation checks remain in force. Do not replace app or game files while the emulator is running.
@@ -77,18 +77,18 @@ BIOS and game images are **not included**. Add your own files after installing t
 
 | File | Exact destination |
 | --- | --- |
-| PlayStation BIOS, exactly **512 KiB (524,288 bytes)** | `SD:/iz2s/modules/izpsx/bios/scph101.bin` |
+| PlayStation BIOS, exactly **512 KiB (524,288 bytes)** | `SD:/iz2s/modules/izpsx/bios/bios.bin` |
 | CUE/BIN game | `SD:/iz2s/modules/izpsx/games/<game name>/disc.cue` and its referenced BIN tracks in the same folder |
 | PBP game | `SD:/iz2s/modules/izpsx/games/<game name>/game.pbp` |
 
-Create `bios/` and `games/` if they do not exist. The BIOS filename must be `scph101.bin`; keep game filenames and CUE track references consistent. Extract compressed game downloads before copying them. Do not put BIOS or games beside `launcher.iza`. Add them through **Games and BIOS** in the PC panel, FTP, or a mounted SD card. Preserve `bios/`, `games/`, `saves/` and settings when updating the application.
+Create `bios/` and `games/` if they do not exist. The BIOS filename must be `bios.bin`; keep game filenames and CUE track references consistent. Extract compressed game downloads before copying them. Do not put BIOS or games beside `launcher.iza`. Add them through **Games and BIOS** in the PC panel, FTP, or a mounted SD card. Preserve `bios/`, `games/`, `saves/` and settings when updating the application.
 
 
 ```text
 SD:/iz2s/modules/izpsx/
   launcher.iza
   asset-<sha256>.izdata
-  bios/scph101.bin
+  bios/bios.bin
   games/<game folder>/<disc>.cue
   games/<game folder>/<track>.bin
   saves/card1.a.izmc

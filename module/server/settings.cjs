@@ -121,7 +121,7 @@ async function create({root,services,backend,guard=()=>guardFor(root),uiHome=pat
    lease=null;leaseSession=null;return {ok:true,shared:true};
   }
   if(route==='/api/upload/begin'){
-   assert(!uploads.size,'Wait for the current upload to finish');assert(data.area!=='saves','Save cards are read-only in this manager');const dest=target(data.area,data.name);if(data.area==='bios')assert(data.name==='scph101.bin'&&data.size===524288,'Upload your 512 KB BIOS as scph101.bin');
+   assert(!uploads.size,'Wait for the current upload to finish');assert(data.area!=='saves','Save cards are read-only in this manager');const dest=target(data.area,data.name);if(data.area==='bios')assert(data.name==='bios.bin'&&data.size===524288,'Upload your 512 KB BIOS as bios.bin');
    assert(Number.isSafeInteger(data.size)&&data.size>0,'Invalid file size');const state=await storage();
    await admission(state.session);
    const parent=path.posix.dirname(dest);await backend.request('sd-mkdir',{path:parent,parents:true,lease});await admission(state.session);
